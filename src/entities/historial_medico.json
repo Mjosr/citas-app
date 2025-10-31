@@ -1,0 +1,80 @@
+
+{
+  "name": "historial_medico",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["nombre_paciente", "celular_paciente", "fecha_visita", "codigo_medico", "diagnostico", "createdAt"],
+        "properties": {
+          "nombre_paciente": {
+            "bsonType": "string",
+            "description": "Nombre completo del paciente"
+          },
+          "celular_paciente": {
+            "bsonType": "string",
+            "description": "Número de celular del paciente"
+          },
+          "fecha_visita": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Fecha de la visita médica ISO 8601"
+          },
+          "codigo_medico": {
+            "bsonType": "string",
+            "description": "Código del médico que atendió"
+          },
+          "diagnostico": {
+            "bsonType": "string",
+            "description": "Diagnóstico o enfermedad detectada"
+          },
+          "tratamiento_recetado": {
+            "bsonType": "string",
+            "description": "Tratamiento o medicamentos recetados"
+          },
+          "sintomas": {
+            "bsonType": "string",
+            "description": "Síntomas presentados por el paciente"
+          },
+          "presion_arterial": {
+            "bsonType": "string",
+            "description": "Presión arterial registrada"
+          },
+          "peso": {
+            "bsonType": "number",
+            "description": "Peso del paciente en kg"
+          },
+          "altura": {
+            "bsonType": "number",
+            "description": "Altura del paciente en cm"
+          },
+          "temperatura": {
+            "bsonType": "number",
+            "description": "Temperatura corporal"
+          },
+          "observaciones": {
+            "bsonType": "string",
+            "description": "Observaciones médicas adicionales"
+          },
+          "cita_id": {
+            "bsonType": "string",
+            "description": "ID de la cita médica asociada"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Fecha de creación ISO 8601"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Fecha de actualización ISO 8601"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

@@ -1,0 +1,57 @@
+
+{
+  "name": "citas_medicas",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["nombre_paciente", "celular_paciente", "fecha_cita", "codigo_medico", "createdAt"],
+        "properties": {
+          "nombre_paciente": {
+            "bsonType": "string",
+            "description": "Nombre completo del paciente"
+          },
+          "celular_paciente": {
+            "bsonType": "string",
+            "description": "Número de celular del paciente"
+          },
+          "fecha_cita": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Fecha y hora de la cita médica ISO 8601"
+          },
+          "codigo_medico": {
+            "bsonType": "string",
+            "description": "Código del médico que atiende"
+          },
+          "estado": {
+            "bsonType": "string",
+            "enum": ["programada", "en_curso", "completada", "cancelada"],
+            "description": "Estado de la cita"
+          },
+          "motivo_consulta": {
+            "bsonType": "string",
+            "description": "Motivo de la consulta"
+          },
+          "observaciones": {
+            "bsonType": "string",
+            "description": "Observaciones adicionales"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Fecha de creación ISO 8601"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Fecha de actualización ISO 8601"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

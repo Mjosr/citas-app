@@ -1,0 +1,70 @@
+
+{
+  "name": "medical_appointments",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["patientFullName", "phoneNumber", "appointmentDate", "doctorId", "status", "createdAt"],
+        "properties": {
+          "patientFullName": {
+            "bsonType": "string",
+            "minLength": 2,
+            "maxLength": 100,
+            "description": "Nombre completo del paciente"
+          },
+          "phoneNumber": {
+            "bsonType": "string",
+            "pattern": "^[0-9+\\-\\s()]+$",
+            "description": "Número de teléfono del paciente"
+          },
+          "appointmentDate": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Fecha y hora de la cita médica"
+          },
+          "doctorId": {
+            "bsonType": "string",
+            "description": "ID único del médico que atiende"
+          },
+          "status": {
+            "bsonType": "string",
+            "enum": ["scheduled", "completed", "cancelled"],
+            "description": "Estado de la cita"
+          },
+          "diagnosis": {
+            "bsonType": "string",
+            "description": "Diagnóstico médico"
+          },
+          "prescription": {
+            "bsonType": "string",
+            "description": "Receta médica"
+          },
+          "treatmentDays": {
+            "bsonType": "int",
+            "minimum": 1,
+            "description": "Días de tratamiento"
+          },
+          "nextAppointmentDate": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Fecha de próxima cita si es necesaria"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Fecha de creación del registro"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Fecha de última actualización"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

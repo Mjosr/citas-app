@@ -1,0 +1,51 @@
+
+{
+  "name": "doctors",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["doctorCode", "fullName", "specialty", "password", "createdAt"],
+        "properties": {
+          "doctorCode": {
+            "bsonType": "string",
+            "pattern": "^DOC[0-9]{4}$",
+            "description": "Código único del médico (formato: DOC0001)"
+          },
+          "fullName": {
+            "bsonType": "string",
+            "minLength": 2,
+            "maxLength": 100,
+            "description": "Nombre completo del médico"
+          },
+          "specialty": {
+            "bsonType": "string",
+            "description": "Especialidad médica"
+          },
+          "password": {
+            "bsonType": "string",
+            "minLength": 6,
+            "description": "Contraseña única del médico"
+          },
+          "isActive": {
+            "bsonType": "bool",
+            "description": "Estado activo del médico"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Fecha de registro"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Fecha de última actualización"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}

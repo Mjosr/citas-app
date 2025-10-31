@@ -1,0 +1,62 @@
+
+{
+  "name": "recetas_medicas",
+  "options": {
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["cita_id", "codigo_medico", "medicamentos", "dias_tratamiento", "createdAt"],
+        "properties": {
+          "cita_id": {
+            "bsonType": "string",
+            "description": "ID de la cita médica asociada"
+          },
+          "codigo_medico": {
+            "bsonType": "string",
+            "description": "Código del médico que prescribe"
+          },
+          "medicamentos": {
+            "bsonType": "array",
+            "items": {
+              "bsonType": "object",
+              "properties": {
+                "nombre": { "bsonType": "string" },
+                "dosis": { "bsonType": "string" },
+                "frecuencia": { "bsonType": "string" },
+                "instrucciones": { "bsonType": "string" }
+              }
+            },
+            "description": "Lista de medicamentos recetados"
+          },
+          "dias_tratamiento": {
+            "bsonType": "int",
+            "minimum": 1,
+            "description": "Duración del tratamiento en días"
+          },
+          "fecha_proxima_cita": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Fecha de próxima cita si es necesaria ISO 8601"
+          },
+          "instrucciones_generales": {
+            "bsonType": "string",
+            "description": "Instrucciones generales del tratamiento"
+          },
+          "createdAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Fecha de creación ISO 8601"
+          },
+          "updatedAt": {
+            "bsonType": "string",
+            "title": "datetime",
+            "description": "Fecha de actualización ISO 8601"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "validationLevel": "moderate",
+    "validationAction": "warn"
+  }
+}
